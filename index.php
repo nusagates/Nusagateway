@@ -1,17 +1,11 @@
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
-    <head>
-        <meta charset="UTF-8">
-        <title></title>
-    </head>
-    <body>
-        <?php
-        // put your code here
-        ?>
-    </body>
-</html>
+<?php
+//exec('cd inc\gammu\bin & gammu 2>&1', $output, $return_var);
+//print_r($output);
+include_once 'db.php';
+include_once 'class/Gammu.php';
+include_once 'class/SMS.php';
+$gammu = new Gammu();
+$gammu->setPath("inc\gammu\bin");
+//$gammu->service_start();
+$sms= new SMS($gammu);
+$sms->single_long("081575073873", "SMS Long character");
